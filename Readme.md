@@ -14,20 +14,20 @@ usage
 
 ⚠️ note: the author asks for adding cydia to LSApplicationQueriesSchemes in info.plist
 
-a much more secure way is having $(X0R_KEY) variable called from an xcconfig file, that have the string computed and not static.
-
+a much more secure way is having $(X0R_KEY) variable called from an xcconfig file, that have the string computed using concatenation
 
 xcconfig concatenation
 
 // X0R
 
-X0R_KEY_A = sec
+  X0R_KEY_A = sec
 
-X0R_KEY_B = re
+  X0R_KEY_B = re
 
-X0R_KEY_C = t
+  X0R_KEY_C = t
 
-X0R_KEY = $(X0R_KEY_A)$(X0R_KEY_B)$(X0R_KEY_C)
+  X0R_KEY = $(X0R_KEY_A)$(X0R_KEY_B)$(X0R_KEY_C)
 
+==================
 
 resource https://developerinsider.co/best-way-to-check-if-your-ios-app-is-running-on-a-jailbroken-phone/
