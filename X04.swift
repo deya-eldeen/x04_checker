@@ -9,16 +9,16 @@ extension UIDevice {
     var x04: Bool {
         get {
             if UIDevice.current.x102 { return false }
-            if X900.x301() { return true }
-            if X900.x302() { return true }
-            if X900.x303() { return true }
-            return X900.x304()
+            if X04.x301() { return true }
+            if X04.x302() { return true }
+            if X04.x303() { return true }
+            return X04.x304()
         }
     }
     
 }
 
-private struct X900 {
+private struct X04 {
     
     static func x301() -> Bool {
         let x11011 = String("aidyc".reversed())+"://"
