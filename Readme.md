@@ -12,6 +12,8 @@ usage
   if UIDevice.current.x04 {
   }
 
+==================
+
 ⚠️ note: the author asks for adding cydia to LSApplicationQueriesSchemes in info.plist
 
 a much more secure way is having $(X0R_KEY) variable called from an xcconfig file, that have the string computed using concatenation
