@@ -10,8 +10,7 @@ extension UIDevice {
         #endif
     }
 
-    /// Jailbreak check using multiple heuristics
-    var x04: Bool {
+    public var x04: Bool {
         guard !UIDevice.current.x102 else { return false }
         return X04.x301() || X04.x302() || X04.x303() || X04.x304()
     }
