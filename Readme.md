@@ -10,7 +10,7 @@ A lightweight, obfuscated Swift extension for `UIDevice` that detects whether yo
 
 ## Installation
 
-1. **Add `JailbreakDetector.swift`** to your project.  
+1. **Add `X04.swift`** to your project.  
 2. **Expose your scheme** in Info.plist under `LSApplicationQueriesSchemes`:  
    ```xml
    <key>LSApplicationQueriesSchemes</key>
