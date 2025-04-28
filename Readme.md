@@ -9,24 +9,7 @@ A lightweight, obfuscated Swift extension for `UIDevice` that detects whether yo
 - **Configurable scheme key**: Pull your custom jailbreak‐app scheme (`cydia://`, `sileo://`, etc.) from an XCConfig variable, not hard‐coded.
 
 ## Installation
-
-1. **Add `X04.swift`** to your project.  
-2. **Expose your scheme** in Info.plist under `LSApplicationQueriesSchemes`:  
-   ```xml
-   <key>LSApplicationQueriesSchemes</key>
-   <array>
-     <string>cydia</string>  <!-- or your custom value -->
-   </array>
-   ```
-3. **Inject your encrypted scheme key** via an `.xcconfig` file:  
-   ```ini
-   // Breakdown into parts to avoid literal strings
-   X0R_KEY_A = sec
-   X0R_KEY_B = re
-   X0R_KEY_C = t
-   X0R_KEY   = $(X0R_KEY_A)$(X0R_KEY_B)$(X0R_KEY_C)
-   ```
-4. **Point your build setting** to use that XCConfig for Info.plist processing (e.g., in your target’s "Build Settings").
+Install this package using SPM, or **Add `X04.swift`** to your project.
 
 ## How It Works
 
@@ -54,6 +37,52 @@ Internally, `X04` runs four checks:
 if UIDevice.current.x04 {
     // Device appears jailbroken—take action (disable features, alert user, etc.)
 }
+```
+
+SwiftUI Usage Example:
+
+```swift
+import SwiftUI
+import X04Checker
+
+@main
+struct x04testApp: App {
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
+}
+
+struct ContentView: View {
+    @State private var monkey = false
+    @State private var showAlert     = false
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Monkey status:")
+                .font(.headline)
+
+            Text(monkey ? "🐒 Monkey!" : "✅ Clean")
+                .font(.title)
+                .foregroundColor(isJailbroken ? .red : .green)
+        }
+        .padding()
+        .onAppear {
+            // perform the check as soon as the view appears
+            monkey = UIDevice.current.x04
+            showAlert = monkey
+        }
+        .alert("Warning",
+               isPresented: $showAlert
+        ) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text("Your device appears to have a monkey. Certain features may be disabled.")
+        }
+    }
+}
+
 ```
 
 ## Customization & Extension
