@@ -48,7 +48,7 @@ Internally, `X04` runs four checks:
 
 > **Note**: Simulator always returns `false` for `x04` to avoid false positives during development.
 
-## 📋 Usage
+## Usage
 
 ```swift
 if UIDevice.current.x04 {
@@ -56,13 +56,13 @@ if UIDevice.current.x04 {
 }
 ```
 
-## 🔧 Customization & Extension
+## Customization & Extension
 
 - **Add more paths**: Append to the `x801` and `x802` arrays in `JailbreakDetector.swift`.  
 - **Swap scheme**: Change the reversed default (`"aidyc"`) or inject a new key via XCConfig.  
 - **Logging & Metrics**: Wrap each check in logging calls or send metrics to your analytics backend.
 
-## 📖 Credits & Resources
+## Credits & Resources
 
 - Original concept by **Vineet Choudhary**.  
 - Article: [Best Way to Check if Your iOS App Is Running on a Jailbroken Phone](https://developerinsider.co/best-way-to-check-if-your-ios-app-is-running-on-a-jailbroken-phone/)  
