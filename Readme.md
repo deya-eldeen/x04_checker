@@ -2,13 +2,13 @@
 
 A lightweight, obfuscated Swift extension for `UIDevice` that detects whether your iOS app is running on a jailbroken device.
 
-## 🚀 Features
+## Features
 
 - **Multiple heuristics**: URL‐scheme checks, file‐presence scans, and write‐test attempts.  
 - **Obfuscated internals**: Uses reversed strings and non‐descriptive identifiers (`x301`, `x802`, etc.) to hinder reverse engineering.  
 - **Configurable scheme key**: Pull your custom jailbreak‐app scheme (`cydia://`, `sileo://`, etc.) from an XCConfig variable, not hard‐coded.
 
-## 🛠 Installation
+## Installation
 
 1. **Add `JailbreakDetector.swift`** to your project.  
 2. **Expose your scheme** in Info.plist under `LSApplicationQueriesSchemes`:  
@@ -28,7 +28,7 @@ A lightweight, obfuscated Swift extension for `UIDevice` that detects whether yo
    ```
 4. **Point your build setting** to use that XCConfig for Info.plist processing (e.g., in your target’s "Build Settings").
 
-## 🔍 How It Works
+## How It Works
 
 The extension adds two properties on `UIDevice`:
 
